@@ -10,41 +10,64 @@ import UIKit
 
 class RemoteImageController: UIViewController {
 
-    var imageView : UIImageView = UIImageView()
+    var imageView1 : UIImageView!
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         // Do any additional setup after loading the view.
         
-        let button1 = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
-        button1.backgroundColor = .orange
-        button1.setTitle("Test Button", for: .normal)
+        imageView1 = UIImageView(frame: CGRect(x: 100, y: 50, width: 150, height: 150))
+        
+        
+        let button1 = UIButton(frame: CGRect(x: 100, y: 50, width: 100, height: 50))
+        button1.backgroundColor = .yellow
+        button1.setTitle("Button 1", for: .normal)
         button1.addTarget(self, action: #selector(buttonAction1), for: .touchUpInside)
         
-        self.view.addSubview(button1)
         
-        let button2 = UIButton(frame: CGRect(x: 100, y: 50, width: 100, height: 50))
+        let button2 = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
         button2.backgroundColor = .blue
-        button2.setTitle("Test Button", for: .normal)
+        button2.setTitle("Button 2", for: .normal)
         button2.addTarget(self, action: #selector(buttonAction2), for: .touchUpInside)
         
+        let button3 = UIButton(frame: CGRect(x: 100, y: 200, width: 100, height: 50))
+        button3.backgroundColor = .red
+        button3.setTitle("Button 3", for: .normal)
+        button3.addTarget(self, action: #selector(buttonAction3), for: .touchUpInside)
+        
+        self.view.addSubview(button1)
         self.view.addSubview(button2)
+        self.view.addSubview(button3)
+
+
         
     }
     
     func buttonAction1(sender: UIButton!) {
         print("Button1 tapped")
-        self.view.addSubview(self.imageView)
+        self.view.addSubview(self.imageView1)
     }
     
     func buttonAction2(sender: UIButton!) {
         print("Button2 tapped")
-        imageView.image = #imageLiteral(resourceName: "pandaroux")
+        imageView1.backgroundColor = UIColor.black
+        self.imageView1.image = UIImage(named: "pandaroux")
+        
     }
+    
+    func buttonAction3(sender: UIButton!) {
+        print("Button3 tapped")
+        imageView1.backgroundColor = UIColor.black
+        let url = URL(string: "http://www.clipartkid.com/images/293/re-uploading-old-art-red-panda-by-sarilain-0JgNA8-clipart.png")
+        let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+        imageView1.image = UIImage(data: data!)
+
+        
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
