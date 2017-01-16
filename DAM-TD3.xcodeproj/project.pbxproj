@@ -15,6 +15,8 @@
 		37C647FC1E2CF1E900CA390B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37C647FA1E2CF1E900CA390B /* LaunchScreen.storyboard */; };
 		37C648071E2CF1E900CA390B /* DAM_TD3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C648061E2CF1E900CA390B /* DAM_TD3Tests.swift */; };
 		37C648121E2CF1E900CA390B /* DAM_TD3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C648111E2CF1E900CA390B /* DAM_TD3UITests.swift */; };
+		37C648221E2CFA3600CA390B /* WebsitesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C648211E2CFA3600CA390B /* WebsitesTableViewController.swift */; };
+		37C648241E2D012600CA390B /* RemoteImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C648231E2D012600CA390B /* RemoteImageController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		37C6480D1E2CF1E900CA390B /* DAM-TD3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DAM-TD3UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		37C648111E2CF1E900CA390B /* DAM_TD3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAM_TD3UITests.swift; sourceTree = "<group>"; };
 		37C648131E2CF1E900CA390B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37C648211E2CFA3600CA390B /* WebsitesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebsitesTableViewController.swift; path = ../WebsitesTableViewController.swift; sourceTree = "<group>"; };
+		37C648231E2D012600CA390B /* RemoteImageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteImageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +103,12 @@
 		37C647EE1E2CF1E800CA390B /* DAM-TD3 */ = {
 			isa = PBXGroup;
 			children = (
+				37C648211E2CFA3600CA390B /* WebsitesTableViewController.swift */,
 				37C647EF1E2CF1E800CA390B /* AppDelegate.swift */,
 				37C647F11E2CF1E800CA390B /* FirstViewController.swift */,
 				37C647F31E2CF1E900CA390B /* SecondViewController.swift */,
 				37C647F51E2CF1E900CA390B /* Main.storyboard */,
+				37C648231E2D012600CA390B /* RemoteImageController.swift */,
 				37C647F81E2CF1E900CA390B /* Assets.xcassets */,
 				37C647FA1E2CF1E900CA390B /* LaunchScreen.storyboard */,
 				37C647FD1E2CF1E900CA390B /* Info.plist */,
@@ -262,9 +268,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37C648241E2D012600CA390B /* RemoteImageController.swift in Sources */,
 				37C647F41E2CF1E900CA390B /* SecondViewController.swift in Sources */,
 				37C647F01E2CF1E800CA390B /* AppDelegate.swift in Sources */,
 				37C647F21E2CF1E800CA390B /* FirstViewController.swift in Sources */,
+				37C648221E2CFA3600CA390B /* WebsitesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +517,7 @@
 				37C648181E2CF1E900CA390B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37C648191E2CF1E900CA390B /* Build configuration list for PBXNativeTarget "DAM-TD3Tests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +526,7 @@
 				37C6481B1E2CF1E900CA390B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37C6481C1E2CF1E900CA390B /* Build configuration list for PBXNativeTarget "DAM-TD3UITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +535,7 @@
 				37C6481E1E2CF1E900CA390B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
