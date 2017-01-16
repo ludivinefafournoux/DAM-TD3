@@ -22,18 +22,18 @@ class RemoteImageController: UIViewController {
         imageView1 = UIImageView(frame: CGRect(x: 100, y: 50, width: 150, height: 150))
         
         
-        let button1 = UIButton(frame: CGRect(x: 100, y: 50, width: 100, height: 50))
-        button1.backgroundColor = .yellow
+        let button1 = UIButton(frame: CGRect(x: 0, y: 450, width: 115, height: 50))
+        button1.backgroundColor = .purple
         button1.setTitle("Button 1", for: .normal)
         button1.addTarget(self, action: #selector(buttonAction1), for: .touchUpInside)
         
         
-        let button2 = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
+        let button2 = UIButton(frame: CGRect(x: 100, y: 450, width: 115, height: 50))
         button2.backgroundColor = .blue
         button2.setTitle("Button 2", for: .normal)
         button2.addTarget(self, action: #selector(buttonAction2), for: .touchUpInside)
         
-        let button3 = UIButton(frame: CGRect(x: 100, y: 200, width: 100, height: 50))
+        let button3 = UIButton(frame: CGRect(x: 200, y: 450, width: 115, height: 50))
         button3.backgroundColor = .red
         button3.setTitle("Button 3", for: .normal)
         button3.addTarget(self, action: #selector(buttonAction3), for: .touchUpInside)
@@ -41,6 +41,7 @@ class RemoteImageController: UIViewController {
         self.view.addSubview(button1)
         self.view.addSubview(button2)
         self.view.addSubview(button3)
+        imageView1.contentMode = .scaleAspectFit
 
 
         
