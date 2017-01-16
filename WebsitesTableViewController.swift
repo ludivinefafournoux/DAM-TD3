@@ -9,6 +9,12 @@
 import UIKit
 
 class WebsitesTableViewController: UITableViewController {
+    
+    var sites = ["Facebook", "Twitter"]
+    var favicon = [UIImage(named:"favicon"), UIImage(named: "faviconTwitter")]
+    var url = ["www.facebook.com", "www.twitter.com"]
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,23 +35,30 @@ class WebsitesTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return sites.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomCell
 
         // Configure the cell...
+        
+        cell.title.text = sites[indexPath.row]
+        cell.title.font = UIFont.boldSystemFont(ofSize: 16.0)
+        cell.favicon.image = favicon[indexPath.row]
+        //cell.favicon.backgroundColor = UIColor.darkGray
+        cell.url.text = url[indexPath.row]
+        
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

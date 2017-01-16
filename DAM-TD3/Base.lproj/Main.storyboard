@@ -32,18 +32,45 @@
         <scene sceneID="Hh1-4O-hN2">
             <objects>
                 <tableViewController id="CLv-vM-xwO" customClass="WebsitesTableViewController" customModule="DAM_TD3" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="DhK-J5-78Q">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="DhK-J5-78Q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="lxe-oJ-fX2">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="60" id="lxe-oJ-fX2" customClass="CustomCell" customModule="DAM_TD3" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lxe-oJ-fX2" id="ogf-fX-2ao">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmA-pQ-gMv">
+                                            <rect key="frame" x="107" y="30" width="158" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Snv-cE-xZR">
+                                            <rect key="frame" x="107" y="8" width="165" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gRk-eR-ocH">
+                                            <rect key="frame" x="0.0" y="-1" width="60" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.039094418287277222" green="0.089919500052928925" blue="0.099089734256267548" alpha="0.5955425941780822" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.039094418287277222" green="0.089919500052928925" blue="0.099089734256267548" alpha="0.1502300941780822" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="favicon" destination="gRk-eR-ocH" id="Boe-Lc-7A3"/>
+                                    <outlet property="title" destination="Snv-cE-xZR" id="ljg-ru-WcZ"/>
+                                    <outlet property="url" destination="vmA-pQ-gMv" id="yhu-Cu-fsc"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -52,10 +79,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="Sja-Vg-aZU"/>
+                    <connections>
+                        <outlet property="tableView" destination="DhK-J5-78Q" id="sJB-Kk-nQj"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Edh-0V-4bA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1332" y="734"/>
+            <point key="canvasLocation" x="1332" y="732.68365817091455"/>
         </scene>
         <!--Websites-->
         <scene sceneID="g3P-FI-dXg">
