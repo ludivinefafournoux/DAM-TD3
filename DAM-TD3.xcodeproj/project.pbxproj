@@ -18,6 +18,7 @@
 		37C648221E2CFA3600CA390B /* WebsitesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C648211E2CFA3600CA390B /* WebsitesTableViewController.swift */; };
 		37C648241E2D012600CA390B /* RemoteImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C648231E2D012600CA390B /* RemoteImageController.swift */; };
 		37C648261E2D703C00CA390B /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C648251E2D703C00CA390B /* CustomCell.swift */; };
+		D34072191E2FED9800A380DD /* MyWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34072181E2FED9800A380DD /* MyWebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		37C648211E2CFA3600CA390B /* WebsitesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebsitesTableViewController.swift; path = ../WebsitesTableViewController.swift; sourceTree = "<group>"; };
 		37C648231E2D012600CA390B /* RemoteImageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteImageController.swift; sourceTree = "<group>"; };
 		37C648251E2D703C00CA390B /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		D34072181E2FED9800A380DD /* MyWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyWebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				37C647F81E2CF1E900CA390B /* Assets.xcassets */,
 				37C647FA1E2CF1E900CA390B /* LaunchScreen.storyboard */,
 				37C647FD1E2CF1E900CA390B /* Info.plist */,
+				D34072181E2FED9800A380DD /* MyWebViewController.swift */,
 			);
 			path = "DAM-TD3";
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				37C647F21E2CF1E800CA390B /* FirstViewController.swift in Sources */,
 				37C648261E2D703C00CA390B /* CustomCell.swift in Sources */,
 				37C648221E2CFA3600CA390B /* WebsitesTableViewController.swift in Sources */,
+				D34072191E2FED9800A380DD /* MyWebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
