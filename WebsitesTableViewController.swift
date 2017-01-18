@@ -8,11 +8,12 @@
 
 import UIKit
 
+
 class WebsitesTableViewController: UITableViewController {
     
-    var sites = ["Facebook", "Twitter"]
-    var favicon = [UIImage(named:"favicon"), UIImage(named: "faviconTwitter")]
-    var url = ["www.facebook.com", "www.twitter.com"]
+    var sites = ["Facebook", "Twitter", "Google"]
+    var favicon = [UIImage(named:"favicon"), UIImage(named: "faviconTwitter"), UIImage(named: "faviconTwitter")]
+    var url = ["www.facebook.com", "www.twitter.com", "www.google.com"]
     
     
 
@@ -58,6 +59,21 @@ class WebsitesTableViewController: UITableViewController {
 
         return cell
     }
+    
+    
+    // détecter la sélection d'une cellule
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        print("You selected cell number: \(indexPath.row)!")
+        
+        //self.performSegue(withIdentifier: "yourIdentifier", sender: self)
+        
+        // « poussez » une instance de MyWebViewController dans le navigation controller (pushViewController: animated:)
+        let myWebViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewControllerIdentifier") as? MyWebViewController
+        self.navigationController? .pushViewController(myWebViewController!, animated: true)
+    }
+    
     
 
     /*
@@ -106,3 +122,4 @@ class WebsitesTableViewController: UITableViewController {
     */
 
 }
+
