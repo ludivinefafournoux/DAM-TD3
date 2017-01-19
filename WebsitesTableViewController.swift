@@ -65,13 +65,19 @@ class WebsitesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        print("You selected cell number: \(indexPath.row)!")
+        //print("You selected cell number: \(indexPath.row)!")
+        print("url: \(url[indexPath.row])")
         
-        //self.performSegue(withIdentifier: "yourIdentifier", sender: self)
-        
-        // « poussez » une instance de MyWebViewController dans le navigation controller (pushViewController: animated:)
-        let myWebViewController = self.storyboard?.instantiateViewController(withIdentifier: "MapViewControllerIdentifier") as? MyWebViewController
-        self.navigationController? .pushViewController(myWebViewController!, animated: true)
+        // « poussez » une instance de MyWebViewController dans le navigation controller 
+        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "viewview") as? MyWebViewController {
+            viewController.url = url[indexPath.row]
+            viewController.titre = sites[indexPath.row]
+            if let navigator = navigationController {
+                navigator.pushViewController(viewController, animated: true)
+                
+            }
+        }
+
     }
     
     

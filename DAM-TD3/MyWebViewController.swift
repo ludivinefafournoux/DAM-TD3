@@ -9,18 +9,49 @@
 import UIKit
 
 class MyWebViewController: UIViewController {
+    
+    public var url: String = ""
+    public var titre: String = ""
+    var toolBar:UIToolbar = UIToolbar()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mywebview = UIWebView()
+        //print("la")
         
-        self.view.addSubview(mywebview)
+        //let mywebview = UIWebView()
+        
+        self.view.addSubview(mywebviewoutlet)
+        
+        // change titre navigation bar
+        self.navigationItem.title = titre
+        
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: mywebviewoutlet, action: #selector(mywebviewoutlet.reload))
+        toolbarItems = [spacer, refresh]
+        
+        navigationController?.navigationBar.barStyle = UIBarStyle.black
+        navigationController?.toolbar.barStyle = UIBarStyle.black
+        navigationController?.isToolbarHidden = false
+        
+        // Toolbar
+        toolBar.frame = self.view.bounds
+        toolBar.sizeToFit()
+        toolBar.setItems(toolbarItems, animated: true)
+        toolBar.barStyle = UIBarStyle.black
+        view.addSubview(toolBar)
+        
         
         // chargez l’url du site web dans la webview
+        mywebviewoutlet.loadRequest(NSURLRequest(url: NSURL(string: "http://\(url)")! as URL) as URLRequest)
+        
+        
 
     }
 
+    @IBOutlet weak var mywebviewoutlet: UIWebView!
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
