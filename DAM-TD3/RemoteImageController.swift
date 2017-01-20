@@ -19,14 +19,14 @@ class RemoteImageController: UIViewController {
         
         // Do any additional setup after loading the view.
         
+        // imageview
         imageView1 = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         
         
-        let button1 = UIButton(frame: CGRect(x: 0, y: 470, width: 115, height: 50))
+        /*let button1 = UIButton(frame: CGRect(x: 0, y: 470, width: 115, height: 50))
         button1.backgroundColor = .purple
         button1.setTitle("Button 1", for: .normal)
-        button1.addTarget(self, action: #selector(buttonAction1), for: .touchUpInside)
-        
+        button1.addTarget(self, action: #selector(buttonAction1), for: .touchUpInside)        
         
         let button2 = UIButton(frame: CGRect(x: 100, y: 470, width: 115, height: 50))
         button2.backgroundColor = .blue
@@ -40,14 +40,38 @@ class RemoteImageController: UIViewController {
         
         self.view.addSubview(button1)
         self.view.addSubview(button2)
-        self.view.addSubview(button3)
+        self.view.addSubview(button3)*/
         
-
-
         
     }
     
-    func buttonAction1(sender: UIButton!) {
+    @IBOutlet weak var button1: UIButton!
+    @IBAction func button1Action(_ sender: Any) {
+        print("Button1 tapped")
+        self.view.addSubview(self.imageView1)
+        self.view.sendSubview(toBack: self.imageView1)
+    }
+    
+    @IBOutlet weak var button2: UIButton!
+    @IBAction func button2Action(_ sender: Any) {
+        print("Button2 tapped")
+        imageView1.backgroundColor = UIColor.black
+        self.imageView1.image = UIImage(named: "pandaroux")
+        imageView1.contentMode = .scaleAspectFit
+    }
+    
+    @IBOutlet weak var button3: UIButton!
+    @IBAction func button3Action(_ sender: Any) {
+        print("Button3 tapped")
+        imageView1.backgroundColor = UIColor.black
+        let url = URL(string: "http://www.clipartkid.com/images/293/re-uploading-old-art-red-panda-by-sarilain-0JgNA8-clipart.png")
+        let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+        imageView1.image = UIImage(data: data!)
+        imageView1.contentMode = .scaleAspectFit
+    }
+    
+    
+    /*func buttonAction1(sender: UIButton!) {
         print("Button1 tapped")
         self.view.addSubview(self.imageView1)
         self.view.sendSubview(toBack: self.imageView1)
@@ -68,7 +92,7 @@ class RemoteImageController: UIViewController {
         imageView1.image = UIImage(data: data!)
         imageView1.contentMode = .scaleAspectFit
         
-    }
+    }*/
 
 
     override func didReceiveMemoryWarning() {

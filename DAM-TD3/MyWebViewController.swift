@@ -1,5 +1,4 @@
 //
-//
 //  MyWebViewController.swift
 //  DAM-TD3
 //
@@ -8,55 +7,64 @@
 //
 
 import UIKit
+import SafariServices
 
 class MyWebViewController: UIViewController {
     
     public var url: String = ""
     public var titre: String = ""
-    var toolBar:UIToolbar = UIToolbar()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //print("la")
-        
-        //let mywebview = UIWebView()
         
         self.view.addSubview(mywebviewoutlet)
         
         // change titre navigation bar
         self.navigationItem.title = titre
         
-        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: mywebviewoutlet, action: #selector(mywebviewoutlet.reload))
-        toolbarItems = [spacer, refresh]
+        // affiche toolbar
+        self.navigationController?.isToolbarHidden = false
         
-        navigationController?.navigationBar.barStyle = UIBarStyle.black
-        navigationController?.toolbar.barStyle = UIBarStyle.black
-        navigationController?.isToolbarHidden = false
-        
-        // Toolbar
-        toolBar.frame = self.view.bounds
-        toolBar.sizeToFit()
-        toolBar.setItems(toolbarItems, animated: true)
-        toolBar.barStyle = UIBarStyle.black
-        view.addSubview(toolBar)
-        
+        // ajout bouton ouvrir dans safari
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Safari", style: .plain, target: self, action: #selector(openSafari))
         
         // chargez l’url du site web dans la webview
         mywebviewoutlet.loadRequest(NSURLRequest(url: NSURL(string: "http://\(url)")! as URL) as URLRequest)
-        
-        
 
     }
+    
+    // ouvrir dans safari
+    func openSafari() {
+        let safariVC = SFSafariViewController(url: NSURL(string: "http://\(url)")! as URL)
+        self.present(safariVC, animated: true, completion: nil)
+        //safariVC.delegate = self
+    }
+    func safariViewControllerDidFinish(controller: SFSafariViewController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
 
+    // webview outlet
     @IBOutlet weak var mywebviewoutlet: UIWebView!
+    
+    
+    // boutons toolbar
+    @IBAction func goBack(_ sender: Any) {
+        self.mywebviewoutlet.goBack()
+    }
+    
+    @IBAction func forward(_ sender: Any) {
+        self.mywebviewoutlet.goForward()
+    }
+    
+    @IBAction func reload(_ sender: Any) {
+        self.mywebviewoutlet.reload()
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
 
     /*
     // MARK: - Navigation
