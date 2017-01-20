@@ -14,6 +14,7 @@ class WebsitesTableViewController: UITableViewController {
     var sites = ["Facebook", "Twitter", "Google"]
     var favicon = [UIImage]()
     var url = ["www.facebook.com", "www.twitter.com", "www.google.com"]
+    var finLien = "/favicon.ico"
 
 
     override func viewDidLoad() {
@@ -114,6 +115,8 @@ class WebsitesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomCell
 
         // Configure the cell...
+        let chemin = String(url[indexPath.row]+finLien)
+        print(chemin!)
         cell.title.text = sites[indexPath.row]
         cell.title.font = UIFont.boldSystemFont(ofSize: 16.0)
         cell.favicon.image = favicon[indexPath.row]
