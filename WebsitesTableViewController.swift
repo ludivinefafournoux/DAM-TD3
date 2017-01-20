@@ -12,12 +12,35 @@ import UIKit
 class WebsitesTableViewController: UITableViewController {
     
     var sites = ["Facebook", "Twitter", "Google"]
-    var favicon = [UIImage(named:"favicon"), UIImage(named: "faviconTwitter"), UIImage(named: "favicon-Google-2015")]
+    var favicon = [UIImage]()
     var url = ["www.facebook.com", "www.twitter.com", "www.google.com"]
+    
+    
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let urlFb = NSURL(string: "http://www.facebook.com/favicon.ico") {
+            if let data = NSData(contentsOf: urlFb as URL) {
+                let image = UIImage(data: data as Data)
+                favicon.append(image!)
+            }
+        }
+        
+        if let urlTwitter = NSURL(string: "http://www.twitter.com/favicon.ico") {
+            if let data = NSData(contentsOf: urlTwitter as URL) {
+                let image = UIImage(data: data as Data)
+                favicon.append(image!)
+            }
+        }
+        
+        if let urlGoogle = NSURL(string: "http://www.google.com/favicon.ico") {
+            if let data = NSData(contentsOf: urlGoogle as URL) {
+                let image = UIImage(data: data as Data)
+                favicon.append(image!)
+            }
+        }
         
     }
   
@@ -167,30 +190,4 @@ class WebsitesTableViewController: UITableViewController {
 
 }
 
-
-extension UIImageView {
-    
-    func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
-        
-        contentMode = mode
-        URLSession.shared.dataTask(with: url) { (data, response, error) in guard
-                
-            let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-            let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-            let data = data, error == nil,
-            let image = UIImage(data: data)
-            else { return }
-            
-            DispatchQueue.main.async() { () -> Void in
-                self.image = image
-            }
-        }.resume()
-    }
-    
-    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
-        
-        guard let url = URL(string: link) else { return }
-        downloadedFrom(url: url, contentMode: mode)
-    }
-}
 
